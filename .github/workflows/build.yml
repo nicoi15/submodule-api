@@ -10,8 +10,10 @@ jobs:
         with:
           java-version: 17
           distribution: 'adopt'
-      - name: Build API submodule with Gradle
-        run: ./gradlew submodule-api:build
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Build API
+        run: ./gradlew build
       - name: Check files
         shell: bash
         run: ls
